@@ -1,0 +1,72 @@
+---
+title: Stark & Wayne Training Preview
+location: Palo Alto, CA
+schedule:
+- label: Monday
+  items:
+  - name: PivotalCF Landscape
+    deck: public/decks/pcf-landscape.md
+  - name: PivotalCF Architecture
+    deck: public/decks/pcf-architecture.md
+- label: Tuesday
+  items:
+  - name: Deploying Applications
+    lab: public/labs/deployingAnApplication.md
+  - name: Scaling Applications
+    lab: public/labs/scalingAnApplication.md
+- label: Wednesday
+  items:
+  - name: PivotalCF Orgs, Spaces, and Roles
+    deck: public/decks/pcf-orgs-spaces.md
+    lab: public/labs/managingOrgsSpacesAndAccounts.md
+  - name: Domains and Routes
+    lab: public/labs/domainsAndRoutes.md
+  - name: Resurrection Demo
+- label: Thursday
+  items:
+  - name: PivotalCF Services Introduction
+    deck: public/decks/pcf-services.md
+  - name: Introduction to Service Brokers
+    deck: public/decks/pcf-service-brokers.md
+  - name: Introduction to Service Brokers
+    lab: public/labs/serviceBroker.md
+  - name: General Workshop Slot [facilitate group discussion]
+- label: Friday
+  items:
+  - name: BOSH Overview
+    deck: public/decks/bosh-overview.md
+  - name: General Workshop Slot [facilitate group discussion]
+
+students:
+- name: Dr Nic
+- name: Quinn
+- name: Bruce Wayne
+  email: bruce@snwtraining.com
+  attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
+- name: Tony Stark
+  email: tony@snwtraining.com
+  attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
+- name: Clark Kent
+  email: clark@snwtraining.com
+  attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
+- name: James Howlett
+  email: james@snwtraining.com
+  attendance: ["Monday", "Tuesday"]
+- name: Peter Parker
+  email: peter@snwtraining.com
+  attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
+- name: Natasha Romanova
+  email: natasha@snwtraining.com
+  attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
+
+managers:
+- name: Walter Joseph Kovacs
+  email: walter@snwtraining.com
+- name: Laurie Juspeczyk
+  email: laurie@snwtraining.com
+
+trainers:
+- name: Dr Nic Williams
+  email: drnic@starkandwayne.com
+- name: Quintessence Anx
+  email: qanx@starkandwayne.com

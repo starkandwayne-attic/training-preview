@@ -1,0 +1,12 @@
+{
+  "author": "Long Nguyen",
+  "name": "markdowntopdf",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-markdown-pdf": "^2.1.1",
+    "markdown-pdf": "^3.0.2",
+    "split": "^0.3.0"
+  }
+}

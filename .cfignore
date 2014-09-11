@@ -1,0 +1,4 @@
+public/decks/
+!public/decks/*.md
+!public/decks/images/
+pse/

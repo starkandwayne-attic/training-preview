@@ -1,0 +1,1 @@
+web: ruby ./training.rb

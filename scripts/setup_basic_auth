@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'base64'
+
+username = ARGV.shift
+password = ARGV.shift
+appname = "training"
+
+unless password
+  $stderr.puts "USAGE: setup_basic_auth username password"
+  exit 1
+end
+
+encoded = Base64.strict_encode64("#{username}:#{password}")
+system "cf set-env #{appname} TRAINING_BASICAUTH '#{encoded}'"
+system "cf restart #{appname}"

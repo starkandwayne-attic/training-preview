@@ -1,0 +1,22 @@
+box: wercker/golang
+build:
+  # The steps that will be executed on build
+  steps:
+    - add-ssh-key:
+        keyname: PCF_TRAINING_MATERIALS_KEY
+    # Sets the go workspace and places you package
+    # at the right place in the workspace tree
+    - setup-go-workspace
+
+    # Test the assets in the md files
+    - script:
+        name: validate all assets
+        code: |
+          ./validateAssets
+
+  after-steps:
+    - wantedly/pretty-slack-notify:
+        team: $SLACK_TEAM
+        token: $SLACK_API_TOKEN
+        channel: $SLACK_CHANNEL
+        username: $SLACK_USER

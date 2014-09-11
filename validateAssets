@@ -1,0 +1,40 @@
+#!/bin/bash
+
+DECKDIR=pse
+RETURNVAL=0
+WGET_TIMEOUT=10
+USERAGENT="Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5"
+
+failAsset(){
+  filename=$1
+  assetDeclaration=$2
+  echo "ASSET CAN NOT BE FOUND: ${assetSignature}"
+  RETURNVAL=1
+}
+
+for i in `grep --include \*.md -ro -e "](.*)$" ${DECKDIR}/*`;
+do
+  FILENAME=$(echo $i | grep -o -e ".*.md:" | sed 's/://g')
+  ASSET=$(echo $i | grep -o -e ".md:](.*" | sed 's/.md:](//g' | sed 's/)//g' | sed 's/(//g')
+  assetSignature="${FILENAME} - ${ASSET}"
+  signatureIgnored=$(grep -w "${assetSignature}" .assetsignore | wc -l)
+
+  if [ ! $ASSET == "" ] && [ $signatureIgnored == 0 ]; then
+    DIR=$(dirname $FILENAME)
+
+    if  [[ $ASSET == "http"* ]]; then
+      echo "Checking remote file:"
+      echo "wget -O/dev/null --timeout=$WGET_TIMEOUT -q $ASSET --user-agent=\"$USERAGENT\" || failAsset $FILENAME $ASSET"
+      wget -O/dev/null --timeout=$WGET_TIMEOUT -q $ASSET --user-agent="$USERAGENT" || failAsset $FILENAME $ASSET
+
+    else
+      echo "Checking local file: ./${DIR}/${ASSET}"
+
+      if [ ! -f ${DIR}/${ASSET} ]; then
+
+        failAsset $FILENAME $ASSET
+      fi;
+    fi;
+  fi;
+done;
+exit $RETURNVAL
