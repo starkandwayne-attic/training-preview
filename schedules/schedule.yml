@@ -41,29 +41,32 @@ students:
 - name: Dr Nic
 - name: Quinn
 - name: Bruce Wayne
-  email: bruce@snwtraining.com
+  email: bruce@starkandwayne.com
   attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
 - name: Tony Stark
-  email: tony@snwtraining.com
+  email: tony@starkandwayne.com
   attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
-- name: Clark Kent
-  email: clark@snwtraining.com
+- name: Natasha Romanoff
+  email: natasharomanoff@starkandwayne.com
   attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
-- name: James Howlett
-  email: james@snwtraining.com
+- name: Oliver Queen
+  email: oliverqueen@starkandwayne.com
+  attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
+- name: Nick Fury
+  email: nickfury@starkandwayne.com
   attendance: ["Monday", "Tuesday"]
-- name: Peter Parker
-  email: peter@snwtraining.com
+- name: Jacob Marlowe
+  email: jacobmarlowe@starkandwayne.com
   attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
-- name: Natasha Romanova
-  email: natasha@snwtraining.com
+- name: Barbara Gordon
+  email: barbaragordon@starkandwayne.com
   attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
 
 managers:
 - name: Walter Joseph Kovacs
-  email: walter@snwtraining.com
+  email: walterkovacs@starkandwayne.com
 - name: Laurie Juspeczyk
-  email: laurie@snwtraining.com
+  email: lauriejuspeczyk@starkandwayne.com
 
 trainers:
 - name: Dr Nic Williams
