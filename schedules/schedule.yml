@@ -38,8 +38,7 @@ schedule:
   - name: General Workshop Slot [facilitate group discussion]
 
 students:
-- name: Dr Nic
-- name: Quinn
+- name: Reserved
 - name: Bruce Wayne
   email: bruce@starkandwayne.com
   attendance: ["Monday", "Tuesday", "Wednesday", "Thursday"]
