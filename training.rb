@@ -67,35 +67,3 @@ configure do
   MDPressto.ParseDir(workingDir)
   MDPressto.BrandDir(workingDir)
 end
-
-# Reads in YAML schedule and creates shell script with environmental variables
-
-schedule_filename = "schedules/20140818-att-seattle-openstack.yml"
-schedule = YAML.load_file(schedule_filename)
-
-courseEnvVar = File.new "public/cfCredentials.sh","w"
-
-courseEnvVar.puts "#!/bin/bash\n"
-courseEnvVar.puts "export cfapiendpoint=api." + schedule['cloudfoundry']['domain']
-courseEnvVar.puts "export uaaendpoint=uaa." + schedule['cloudfoundry']['domain']
-courseEnvVar.puts "export cfuser=" + schedule['cloudfoundry']['user']
-courseEnvVar.puts "export cfconsole=console." + schedule['cloudfoundry']['domain']
-courseEnvVar.puts "export uaaendpoint=https://uaa." + schedule['cloudfoundry']['domain']
-courseEnvVar.puts "export firstname=CHANGEME"
-courseEnvVar.puts "export orgname=$(whoami)"
-courseEnvVar.puts "export cforg=default"
-courseEnvVar.puts "export rootdomain=$(dig $cfapiendpoint +short | head -n1).xip.io"
-courseEnvVar.puts "export orgdomain=$(whoami).$rootdomain"
-courseEnvVar.puts '[ "$firstname" == "CHANGEME" ] && printf "\n***Change \$firstname from CHANGEME!***\n"'
-courseEnvVar.puts "printf '\\n'"
-courseEnvVar.puts "echo 'the cf admin password is: " + schedule['cloudfoundry']['password'] + "'"
-courseEnvVar.puts "echo 'the cf admin secret is: " + schedule['cloudfoundry']['secret'] + "'"
-courseEnvVar.puts "echo 'the cf console url is: ' $cfconsole"
-courseEnvVar.puts "printf '\\n'"
-courseEnvVar.puts "export bosh_ip=" + schedule['bosh']['ipaddress']
-courseEnvVar.puts "echo 'the bosh user is: " + schedule['bosh']['admin_user'] + "'"
-courseEnvVar.puts "echo 'the bosh password is: " + schedule['bosh']['admin_password'] + "'"
-courseEnvVar.puts "echo 'the bosh UUID is: " + schedule['bosh']['UUID'] + "'"
-courseEnvVar.puts "export microbosh_config=" + schedule['bosh']['microbosh_config']
-
-courseEnvVar.close
